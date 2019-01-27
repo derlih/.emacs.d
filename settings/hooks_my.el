@@ -32,6 +32,12 @@
 (add-hook 'emacs-lisp-mode-hook 'company-mode)
 (add-hook 'emacs-lisp-mode-hook 'linum-mode)
 
+;; LSP mode
+(add-hook 'lsp-mode-hook
+          '(lambda ()
+             (add-hook 'before-save-hook 'lsp-format-buffer nil 'local)
+             ))
+
 ;; Python
 (add-hook 'python-mode-hook 'linum-mode)
 (add-hook 'python-mode-hook #'lsp)
