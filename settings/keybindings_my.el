@@ -15,4 +15,7 @@
 (global-unset-key (kbd "C-x C-z"))
 (global-set-key (kbd "C-x C-z") 'magit-status)
 
+;; imenu anywhere
+(global-set-key (kbd "C-.") #'ido-imenu-anywhere)
+
 (provide 'keybindings_my)

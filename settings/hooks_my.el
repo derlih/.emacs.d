@@ -24,15 +24,23 @@
          (desktop-remove)
          (setq desktop-dirname desktop-dirname-tmp)))
 
-;; Lisp
-(add-hook 'emacs-lisp-mode-hook 'company-mode)
-(add-hook 'emacs-lisp-mode-hook 'linum-mode)
+;; Company mode
+(setq company-quickhelp-delay 0.2)
+(add-hook 'company-mode-hook 'company-quickhelp-mode)
 
 ;; LSP mode
 (add-hook 'lsp-mode-hook
           '(lambda ()
              (add-hook 'before-save-hook 'lsp-format-buffer nil 'local)
+             (turn-on-eldoc-mode)
+             (imenu-add-menubar-index)
              ))
+
+;; Lisp
+(add-hook 'emacs-lisp-mode-hook 'company-mode)
+(add-hook 'emacs-lisp-mode-hook 'linum-mode)
+(add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
+(add-hook 'emacs-lisp-mode-hook 'imenu-add-menubar-index)
 
 ;; Python
 (add-hook 'python-mode-hook 'linum-mode)

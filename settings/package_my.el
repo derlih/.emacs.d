@@ -17,10 +17,18 @@
 
 (package-refresh-contents)
 (package-install 'company)
+(package-install 'company-quickhelp)
 (package-install 'magit)
 (package-install 'lsp-mode)
 (package-install 'company-lsp)
 (package-install 'go-mode)
+(package-install 'flx-ido)
+(package-install 'imenu-anywhere)
+
+;; flx-ido
+(flx-ido-mode 1)
+(setq ido-enable-flex-matching t)
+(setq ido-use-faces nil)
 
 ;; exec-path-from-shell
 (when (memq window-system '(mac ns x))

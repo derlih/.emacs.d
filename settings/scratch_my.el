@@ -24,8 +24,6 @@
 
 ;; Move between frames
 (windmove-default-keybindings 'meta)
-(when (fboundp 'windmove-default-keybindings)
-  (windmove-default-keybindings))
 
 ;;  Avoid the annoying startup message.
 (setq inhibit-startup-message t)
@@ -53,8 +51,10 @@
 ;; Set tab 4 spaces
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
-(setq c-default-style "linux"
-          c-basic-offset 4)
+(setq-default standart-indent 4)
+(setq-default c-basic-offset 4)
+(setq-default lisp-body-indent 4)
+(setq c-default-style "linux")
 (setq indent-line-function 'insert-tab)
 
 ;; Setup emacs backup directory
@@ -99,5 +99,22 @@
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 (ido-mode 1)
+
+;; imenu
+(setq imenu-auto-rescan t)
+(setq imenu-use-popup-menu nil)
+
+;; Display the name of the current buffer in the title bar
+(setq frame-title-format "GNU Emacs: %b")
+
+;; Disable bell sound
+(setq ring-bell-function 'ignore)
+
+;; Scroll settings
+(setq scroll-step 1)
+(setq scroll-margin 10)
+
+;; Ensure new line to the end
+(setq require-final-newline t)
 
 (provide 'scratch_my)
