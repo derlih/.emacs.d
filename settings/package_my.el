@@ -29,6 +29,8 @@
         dtrt-indent
         groovy-mode
         yaml-mode
+        ag
+        winnow
         ))
 
 (cl-loop for pkg in my_packages do
@@ -53,5 +55,8 @@
 
 ;; YAML mode
 (add-to-list 'auto-mode-alist '(".*\.yml\\'" . yaml-mode))
+
+;; ag
+(setq ag-highlight-search t)
 
 (provide 'package_my)
