@@ -42,4 +42,8 @@
 (add-hook 'python-mode-hook 'linum-mode)
 (add-hook 'python-mode-hook #'lsp)
 
+;; Go
+(add-hook 'go-mode-hook 'linum-mode)
+(add-hook 'go-mode-hook #'lsp)
+
 (provide 'hooks_my)

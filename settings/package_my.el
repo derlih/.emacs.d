@@ -20,6 +20,7 @@
 (package-install 'magit)
 (package-install 'lsp-mode)
 (package-install 'company-lsp)
+(package-install 'go-mode)
 
 ;; exec-path-from-shell
 (when (memq window-system '(mac ns x))
