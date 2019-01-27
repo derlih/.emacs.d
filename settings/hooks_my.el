@@ -24,7 +24,9 @@
          (desktop-remove)
          (setq desktop-dirname desktop-dirname-tmp)))
 
-
+;; Magit
+(global-unset-key (kbd "C-x C-z"))
+(global-set-key (kbd "C-x C-z") 'magit-status)
 
 ;; Lisp
 (add-hook 'emacs-lisp-mode-hook 'company-mode)
