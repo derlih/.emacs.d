@@ -12,18 +12,24 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 (package-initialize)
-
-(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
-
 (package-refresh-contents)
-(package-install 'company)
-(package-install 'company-quickhelp)
-(package-install 'magit)
-(package-install 'lsp-mode)
-(package-install 'company-lsp)
-(package-install 'go-mode)
-(package-install 'flx-ido)
-(package-install 'imenu-anywhere)
+
+(setq my_packages
+      '(
+        company
+        company-quickhelp
+        magit
+        lsp-mode
+        company-lsp
+        go-mode
+        flx-ido
+        imenu-anywhere
+        ))
+
+(cl-loop for pkg in my_packages do
+         (message "Ensure %s installed" pkg)
+         (unless (package-installed-p pkg)
+             (package-install 'pkg)))
 
 ;; flx-ido
 (flx-ido-mode 1)
