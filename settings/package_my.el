@@ -25,6 +25,10 @@
         flx-ido
         imenu-anywhere
         dockerfile-mode
+        exec-path-from-shell
+        dtrt-indent
+        groovy-mode
+        yaml-mode
         ))
 
 (cl-loop for pkg in my_packages do
@@ -43,5 +47,11 @@
 
 ;; dockerfile-mode
 (add-to-list 'auto-mode-alist '("Dockerfile.*\\'" . dockerfile-mode))
+
+;; groovy mode
+(add-to-list 'auto-mode-alist '("Jenkinsfile.*\\'" . groovy-mode))
+
+;; YAML mode
+(add-to-list 'auto-mode-alist '(".*\.yml\\'" . yaml-mode))
 
 (provide 'package_my)
