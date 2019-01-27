@@ -11,5 +11,8 @@
 (global-unset-key (kbd "C-q"))
 (global-set-key (kbd "C-q") 'er/expand-region)
 
+;; Magit
+(global-unset-key (kbd "C-x C-z"))
+(global-set-key (kbd "C-x C-z") 'magit-status)
 
 (provide 'keybindings_my)
