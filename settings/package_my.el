@@ -18,9 +18,8 @@
 (package-refresh-contents)
 (package-install 'company)
 (package-install 'magit)
-
-(global-unset-key (kbd "C-x C-z"))
-(global-set-key (kbd "C-x C-z") 'magit-status)
+(package-install 'lsp-mode)
+(package-install 'company-lsp)
 
 ;; exec-path-from-shell
 (when (memq window-system '(mac ns x))

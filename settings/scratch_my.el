@@ -89,15 +89,10 @@
 ;; Don't ask about opening unsafe files
 (setq enable-local-variables :safe)
 
-;; Don't ask about process on close
-;; (add-hook 'comint-exec-hook
-;;           (lambda () (set-process-query-on-exit-flag (get-buffer-process (current-buffer)) nil)))
-
 ;; Disable ask to kill process on exit
-;; (defadvice save-buffers-kill-emacs (around no-query-kill-emacs activate)
-;;   "Prevent annoying \"Active processes exist\" query when you quit Emacs."
-;;   (cl-letf (((symbol-function #'process-list) (lambda ())))
-;;     ad-do-it))
-
+(defadvice save-buffers-kill-emacs (around no-query-kill-emacs activate)
+  "Prevent annoying \"Active processes exist\" query when you quit Emacs."
+  (cl-letf (((symbol-function #'process-list) (lambda ())))
+    ad-do-it))
 
 (provide 'scratch_my)

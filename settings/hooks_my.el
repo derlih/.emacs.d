@@ -32,5 +32,8 @@
 (add-hook 'emacs-lisp-mode-hook 'company-mode)
 (add-hook 'emacs-lisp-mode-hook 'linum-mode)
 
+;; Python
+(add-hook 'python-mode-hook 'linum-mode)
+(add-hook 'python-mode-hook #'lsp)
 
 (provide 'hooks_my)
