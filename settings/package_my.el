@@ -24,12 +24,13 @@
         go-mode
         flx-ido
         imenu-anywhere
+        dockerfile-mode
         ))
 
 (cl-loop for pkg in my_packages do
          (message "Ensure %s installed" pkg)
          (unless (package-installed-p pkg)
-             (package-install 'pkg)))
+             (package-install pkg)))
 
 ;; flx-ido
 (flx-ido-mode 1)
@@ -39,5 +40,8 @@
 ;; exec-path-from-shell
 (when (memq window-system '(mac ns x))
   (exec-path-from-shell-initialize))
+
+;; dockerfile-mode
+(add-to-list 'auto-mode-alist '("Dockerfile.*\\'" . dockerfile-mode))
 
 (provide 'package_my)
