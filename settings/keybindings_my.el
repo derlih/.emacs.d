@@ -1,5 +1,6 @@
 ;; Open buffer menu in same frame
-(global-set-key (kbd "C-x C-b") 'buffer-menu)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+(autoload 'ibuffer "ibuffer" "List buffers." t)
 
 ;; Open shell hotkey
 (global-set-key (kbd "<f12>") 'shell)
