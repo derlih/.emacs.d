@@ -3,7 +3,7 @@
 
 ;; Delete trailing newlines
 (defun my-other-delete-trailing-blank-lines ()
-          "Deletes all blank lines at the end of the file"
+          "Deletes all blank lines at the end of the file."
           (interactive)
           (save-excursion
             (save-restriction
@@ -30,15 +30,16 @@
 
 ;; Default hook for dev files
 (defun my-dev-hook ()
-        "Hook for all development files"
+        "Hook for all development files."
          (linum-mode)
          (turn-on-eldoc-mode)
          (imenu-add-menubar-index)
          (dtrt-indent-mode)
+         (flymake-mode-off)
+         (flycheck-mode)
          )
 
 ;; Company mode
-(setq company-quickhelp-delay 0.2)
 (add-hook 'company-mode-hook 'company-quickhelp-mode)
 
 ;; LSP mode
@@ -47,6 +48,9 @@
 (add-hook 'lsp-mode-hook
           '(lambda ()
              (add-hook 'before-save-hook 'lsp-format-buffer nil 'local)))
+
+(with-eval-after-load 'lsp-mode
+    (add-hook 'lsp-after-open-hook (lambda () (lsp-ui-flycheck-enable 1))))
 
 ;; Lisp
 (add-hook 'emacs-lisp-mode-hook 'company-mode)

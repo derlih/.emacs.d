@@ -3,6 +3,8 @@
 
 (require 'package)
 
+;;; Code:
+
 ;; for gnu repository
 (setq package-check-signature nil)
 
@@ -19,7 +21,9 @@
         company
         company-quickhelp
         magit
+        flycheck
         lsp-mode
+        lsp-ui
         company-lsp
         go-mode
         flx-ido
@@ -39,13 +43,27 @@
              (package-install pkg)))
 
 ;; flx-ido
+(require 'flx-ido)
 (flx-ido-mode 1)
-(setq ido-enable-flex-matching t)
-(setq ido-use-faces nil)
+(setq ido-enable-flex-matching t
+      ido-use-faces nil
+      ido-ignore-extensions t)
+(push ".exe" completion-ignored-extensions)
+
+;; company-quickhelp
+(require 'company-quickhelp)
+(setq company-quickhelp-delay 0.2)
 
 ;; exec-path-from-shell
+(require 'exec-path-from-shell)
 (when (memq window-system '(mac ns x))
-  (exec-path-from-shell-initialize))
+    (exec-path-from-shell-initialize))
+
+;; lsp-ui
+(require 'lsp-ui)
+(setq lsp-ui-sideline-enable nil
+      lsp-ui-peek-enable nil
+      lsp-ui-doc-enable nil)
 
 ;; dockerfile-mode
 (add-to-list 'auto-mode-alist '("Dockerfile.*\\'" . dockerfile-mode))
@@ -57,6 +75,8 @@
 (add-to-list 'auto-mode-alist '(".*\.yml\\'" . yaml-mode))
 
 ;; ag
+(require 'ag)
 (setq ag-highlight-search t)
 
 (provide 'package_my)
+;;; package_my.el ends here
