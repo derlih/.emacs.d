@@ -35,8 +35,10 @@
          (turn-on-eldoc-mode)
          (imenu-add-menubar-index)
          (dtrt-indent-mode)
-         (flymake-mode-off)
+         (flymake-mode)
          (flycheck-mode)
+         (with-eval-after-load 'flycheck
+             (flycheck-pos-tip-mode))
          )
 
 ;; Company mode

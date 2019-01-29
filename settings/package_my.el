@@ -22,6 +22,7 @@
         company-quickhelp
         magit
         flycheck
+        flycheck-pos-tip
         lsp-mode
         lsp-ui
         company-lsp
@@ -35,12 +36,18 @@
         yaml-mode
         ag
         winnow
+        dimmer
+        powerline
         ))
 
 (cl-loop for pkg in my_packages do
          (message "Ensure %s installed" pkg)
          (unless (package-installed-p pkg)
              (package-install pkg)))
+
+;; powerline
+(require 'powerline)
+(powerline-default-theme)
 
 ;; flx-ido
 (require 'flx-ido)
@@ -58,6 +65,11 @@
 (require 'exec-path-from-shell)
 (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize))
+
+;; dimmer
+(dimmer-mode)
+(with-eval-after-load 'dimmer
+    (setq dimmer-fraction 0.4))
 
 ;; lsp-ui
 (require 'lsp-ui)
