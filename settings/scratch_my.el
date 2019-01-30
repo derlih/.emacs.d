@@ -117,4 +117,7 @@
 ;; Ensure new line to the end
 (setq require-final-newline t)
 
+;; IBuffer
+(setq ibuffer-expert t)
+
 (provide 'scratch_my)
