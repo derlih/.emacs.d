@@ -30,16 +30,14 @@
 
 ;; Default hook for dev files
 (defun my-dev-hook ()
-        "Hook for all development files."
-         (linum-mode)
-         (turn-on-eldoc-mode)
-         (imenu-add-menubar-index)
-         (dtrt-indent-mode)
-         (flymake-mode)
-         (flycheck-mode)
-         (with-eval-after-load 'flycheck
-             (flycheck-pos-tip-mode))
-         )
+    "Hook for all development files."
+    (linum-mode)
+    (turn-on-eldoc-mode)
+    (imenu-add-menubar-index)
+    (dtrt-indent-mode)
+    (flycheck-mode)
+    (flycheck-pos-tip-mode)
+    )
 
 ;; Company mode
 (add-hook 'company-mode-hook 'company-quickhelp-mode)
@@ -52,19 +50,20 @@
              (add-hook 'before-save-hook 'lsp-format-buffer nil 'local)))
 
 (with-eval-after-load 'lsp-mode
-    (add-hook 'lsp-after-open-hook (lambda () (lsp-ui-flycheck-enable 1))))
+    (add-hook 'lsp-after-open-hook
+              (lambda ()(setq lsp-ui-flycheck-enable 1))))
 
 ;; Lisp
 (add-hook 'emacs-lisp-mode-hook 'company-mode)
 (add-hook 'emacs-lisp-mode-hook 'my-dev-hook)
 
 ;; Python
-(add-hook 'python-mode-hook 'my-dev-hook)
 (add-hook 'python-mode-hook #'lsp)
+(add-hook 'python-mode-hook 'my-dev-hook)
 
 ;; Go
-(add-hook 'go-mode-hook 'my-dev-hook)
 (add-hook 'go-mode-hook #'lsp)
+(add-hook 'go-mode-hook 'my-dev-hook)
 
 ;; Groovy
 (add-hook 'groovy-mode-hook 'my-dev-hook)
