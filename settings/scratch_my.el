@@ -43,7 +43,7 @@
 (tool-bar-mode -1)
 
 ;; Disable menu
-(menu-bar-mode -1)
+(menu-bar-mode t)
 
 ;; Turn on column mode
 (setq column-number-mode t)
