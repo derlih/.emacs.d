@@ -35,8 +35,7 @@
     (turn-on-eldoc-mode)
     (imenu-add-menubar-index)
     (dtrt-indent-mode)
-    (flycheck-mode)
-    (flycheck-pos-tip-mode)
+    (flymake-mode)
     )
 
 ;; Company mode
@@ -49,21 +48,17 @@
           '(lambda ()
              (add-hook 'before-save-hook 'lsp-format-buffer nil 'local)))
 
-(with-eval-after-load 'lsp-mode
-    (add-hook 'lsp-after-open-hook
-              (lambda ()(setq lsp-ui-flycheck-enable 1))))
-
 ;; Lisp
 (add-hook 'emacs-lisp-mode-hook 'company-mode)
 (add-hook 'emacs-lisp-mode-hook 'my-dev-hook)
 
 ;; Python
-(add-hook 'python-mode-hook #'lsp)
 (add-hook 'python-mode-hook 'my-dev-hook)
+(add-hook 'python-mode-hook #'lsp)
 
 ;; Go
-(add-hook 'go-mode-hook #'lsp)
 (add-hook 'go-mode-hook 'my-dev-hook)
+(add-hook 'go-mode-hook #'lsp)
 
 ;; Groovy
 (add-hook 'groovy-mode-hook 'my-dev-hook)

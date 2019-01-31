@@ -21,8 +21,6 @@
         company
         company-quickhelp
         magit
-        flycheck
-        flycheck-pos-tip
         lsp-mode
         lsp-ui
         company-lsp
