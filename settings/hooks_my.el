@@ -39,7 +39,7 @@
     )
 
 ;; Company mode
-(add-hook 'company-mode-hook 'company-quickhelp-mode)
+(add-hook 'company-mode-hook 'company-quickhelp-local-mode)
 
 ;; LSP mode
 ;; Activate hooks for supported languages
