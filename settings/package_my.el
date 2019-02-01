@@ -55,9 +55,14 @@
       ido-ignore-extensions t)
 (push ".exe" completion-ignored-extensions)
 
-;; company-quickhelp
+;; company
 (require 'company-quickhelp)
-(setq company-quickhelp-delay 0.2)
+(setq company-quickhelp-delay 0.2
+      company-dabbrev-downcase nil
+      company-show-numbers t
+      company-tooltip-idle-delay 0
+      company-idle-delay 0.1
+      company-lsp-async t)
 
 ;; exec-path-from-shell
 (require 'exec-path-from-shell)
@@ -69,7 +74,7 @@
 (with-eval-after-load 'dimmer
     (setq dimmer-fraction 0.4))
 
-;; lsp-ui
+;; lsp
 (require 'lsp-ui)
 (setq lsp-ui-sideline-enable nil
       lsp-ui-peek-enable nil
