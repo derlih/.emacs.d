@@ -36,6 +36,7 @@
         winnow
         dimmer
         powerline
+        web-mode
         ))
 
 (cl-loop for pkg in my_packages do
@@ -92,6 +93,10 @@
 ;; ag
 (require 'ag)
 (setq ag-highlight-search t)
+
+;; Web dev
+(add-to-list 'auto-mode-alist '("\\.ts[x]\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.js[x]\\'" . web-mode))
 
 (provide 'package_my)
 ;;; package_my.el ends here
