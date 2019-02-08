@@ -28,6 +28,9 @@
 (add-hook 'ag-mode-hook 'winnow-mode)
 (add-hook 'compilation-mode-hook 'winnow-mode)
 
+;; Shell mode
+(add-hook 'shell-mode-hook 'compilation-shell-minor-mode)
+
 ;; Default hook for dev files
 (defun my-dev-hook ()
     "Hook for all development files."
