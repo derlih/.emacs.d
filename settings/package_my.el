@@ -37,6 +37,7 @@
         dimmer
         powerline
         web-mode
+        cmake-mode
         ))
 
 (cl-loop for pkg in my_packages do
