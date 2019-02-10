@@ -69,8 +69,9 @@
 ;; YAML
 (add-hook 'yaml-mode-hook 'my-dev-hook)
 
-;; web-mode
+;; Web
 (add-hook 'web-mode-hook 'my-dev-hook)
-(add-hook 'web-mode-hook #'lsp)
+(add-hook 'typescript-mode-hook 'my-dev-hook)
+
 
 (provide 'hooks_my)

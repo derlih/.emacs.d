@@ -38,6 +38,7 @@
         powerline
         web-mode
         cmake-mode
+        typescript-mode
         ))
 
 (cl-loop for pkg in my_packages do
@@ -80,7 +81,8 @@
 (require 'lsp-ui)
 (setq lsp-ui-sideline-enable nil
       lsp-ui-peek-enable nil
-      lsp-ui-doc-enable nil)
+      lsp-ui-doc-enable nil
+      lsp-enable-on-type-formatting nil)
 
 ;; dockerfile-mode
 (add-to-list 'auto-mode-alist '("Dockerfile.*\\'" . dockerfile-mode))
@@ -96,8 +98,10 @@
 (setq ag-highlight-search t)
 
 ;; Web dev
-(add-to-list 'auto-mode-alist '("\\.ts[x]\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.js[x]\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
+
 
 (provide 'package_my)
 ;;; package_my.el ends here
