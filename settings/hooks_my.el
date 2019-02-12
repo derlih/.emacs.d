@@ -74,4 +74,7 @@
 (add-hook 'typescript-mode-hook 'my-dev-hook)
 
 
+;; C mode
+(add-hook 'c-mode-common-hook 'my-dev-hook)
+
 (provide 'hooks_my)
