@@ -82,4 +82,7 @@
 (add-hook 'c-mode-hook
           'my-clang-format)
 
+;; CMake
+(add-hook 'cmake-mode-hook 'my-dev-hook)
+
 (provide 'hooks_my)
