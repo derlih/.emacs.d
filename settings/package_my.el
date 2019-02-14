@@ -39,6 +39,7 @@
         web-mode
         cmake-mode
         typescript-mode
+        clang-format
         ))
 
 (cl-loop for pkg in my_packages do

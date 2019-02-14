@@ -73,8 +73,13 @@
 (add-hook 'web-mode-hook 'my-dev-hook)
 (add-hook 'typescript-mode-hook 'my-dev-hook)
 
-
 ;; C mode
 (add-hook 'c-mode-common-hook 'my-dev-hook)
+(defun my-clang-format ()
+    (add-hook 'before-save-hook 'clang-format-buffer nil 'local))
+(add-hook 'c++-mode-hook
+          'my-clang-format)
+(add-hook 'c-mode-hook
+          'my-clang-format)
 
 (provide 'hooks_my)
