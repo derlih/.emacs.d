@@ -22,6 +22,12 @@
         (goto-char point)
         (message "No non-ascii characters."))))
 
+;; Case insensetive sort line
+(defun sort-lines-nocase ()
+  (interactive)
+  (let ((sort-fold-case t))
+    (call-interactively 'sort-lines)))
+
 ;; Move between frames
 (windmove-default-keybindings 'meta)
 
