@@ -46,7 +46,8 @@
 (delete-selection-mode t)
 
 ;; Disable toolbar
-(tool-bar-mode -1)
+(when (display-graphic-p)
+  (tool-bar-mode -1))
 
 ;; Disable menu
 (menu-bar-mode t)
