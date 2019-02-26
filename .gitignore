@@ -6,3 +6,4 @@
 /.lsp-session-*
 /ido.last
 flycheck_*
+/transient
