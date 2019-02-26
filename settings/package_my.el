@@ -40,6 +40,7 @@
         cmake-mode
         typescript-mode
         clang-format
+        protobuf-mode
         ))
 
 (cl-loop for pkg in my_packages do
