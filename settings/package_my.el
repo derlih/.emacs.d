@@ -67,12 +67,13 @@
     (company-dabbrev-downcase nil)
     (company-show-numbers t)
     (company-tooltip-idle-delay 0)
-    (company-idle-delay 0.1))
-(use-package company-quickhelp
-    :custom
-    (company-quickhelp-delay 0.2)
-    :hook
-    (company-mode . company-quickhelp-local-mode))
+    (company-idle-delay 0.1)
+    :config
+    (use-package company-quickhelp
+        :custom
+        (company-quickhelp-delay 0.2)
+        :hook
+        (company-mode . company-quickhelp-local-mode)))
 
 (use-package flycheck
     :config
