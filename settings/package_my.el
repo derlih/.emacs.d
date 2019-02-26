@@ -103,6 +103,12 @@
     :custom
     (ag-highlight-search t))
 
+(use-package projectile
+    :config
+    (projectile-mode +1)
+    :bind-keymap
+    ("C-c p" . projectile-command-map))
+
 (use-package dtrt-indent)
 (use-package clang-format)
 
