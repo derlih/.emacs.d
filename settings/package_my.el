@@ -83,7 +83,13 @@
 (setq lsp-ui-sideline-enable nil
       lsp-ui-peek-enable nil
       lsp-ui-doc-enable nil
-      lsp-enable-on-type-formatting nil)
+      lsp-enable-on-type-formatting nil
+      lsp-clients-go-gocode-completion-enabled nil)
+(setq lsp-clients-go-server-args
+      '(
+        "-enhance-signature-help"
+        "-format-style=goimports"
+))
 
 ;; dockerfile-mode
 (add-to-list 'auto-mode-alist '("Dockerfile.*\\'" . dockerfile-mode))
