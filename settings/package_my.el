@@ -74,8 +74,15 @@
     :hook
     (company-mode . company-quickhelp-local-mode))
 
+(use-package flycheck
+    :config
+    (use-package flycheck-pos-tip
+        :config
+        (flycheck-pos-tip-mode)))
+
 (use-package lsp-mode
     :custom
+    (lsp-prefer-flymake :none)
     (lsp-enable-on-type-formatting nil)
     (lsp-clients-go-gocode-completion-enabled nil)
     (lsp-clients-go-server-args '(
@@ -86,7 +93,8 @@
         :custom
         (lsp-ui-sideline-enable nil)
         (lsp-ui-doc-enable nil)
-        (lsp-ui-peek-enable nil))
+        (lsp-ui-peek-enable nil)
+        (lsp-ui-flycheck-enable t))
     (use-package company-lsp
         :custom
         (company-lsp-async t)))

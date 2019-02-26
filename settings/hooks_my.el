@@ -31,7 +31,7 @@
     (turn-on-eldoc-mode)
     (imenu-add-menubar-index)
     (dtrt-indent-mode)
-    (flymake-mode)
+    (flycheck-mode)
     )
 
 ;; LSP mode
