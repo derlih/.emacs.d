@@ -1,115 +1,134 @@
-;; Package manager:
-;; Initialise package and add Melpa repository
-
 (require 'package)
 
-;;; Code:
+;; package repos
+(customize-set-variable 'package-archives
+                        '(
+                          ("marmalade" . "https://marmalade-repo.org/packages/")
+                          ("Org-mode"  . "https://orgmode.org/elpa/")
+                          ("melpa"     . "https://melpa.org/packages/")
+                          ))
 
-;; for gnu repository
-(setq package-check-signature nil)
-
-;; add repos
-(add-to-list 'package-archives '("GNU" . "https://elpa.gnu.org/packages/") t)
-(add-to-list 'package-archives '("Org-mode" . "https://orgmode.org/elpa/") t)
-(add-to-list 'package-archives '("MELPA" . "https://melpa.org/packages/") t)
-
+;; package initialization
 (package-initialize)
-(package-refresh-contents)
+(when (not package-archive-contents)
+    (package-refresh-contents))
 
-(defvar package_my-packages
-    '(
-      company
-      company-quickhelp
-      magit
-      lsp-mode
-      lsp-ui
-      company-lsp
-      go-mode
-      flx-ido
-      imenu-anywhere
-      dockerfile-mode
-      exec-path-from-shell
-      dtrt-indent
-      groovy-mode
-      yaml-mode
-      ag
-      winnow
-      dimmer
-      powerline
-      web-mode
-      cmake-mode
-      typescript-mode
-      clang-format
-      protobuf-mode
-      ))
+;; use-package
+(when (not (package-installed-p 'use-package))
+    (package-install 'use-package))
+(require 'use-package)
+(customize-set-variable 'use-package-always-ensure t)
+(customize-set-variable 'use-package-always-defer t)
+(customize-set-variable 'use-package-verbose nil) ;; useful for debug
 
-(cl-loop for pkg in package_my-packages do
-         (message "Ensure %s installed" pkg)
-         (unless (package-installed-p pkg)
-             (package-install pkg)))
+;; Recompile the package if .el is newer then .elc
+(customize-set-variable 'load-prefer-newer t)
+(use-package auto-compile
+  :defer nil
+  :config (auto-compile-on-load-mode))
 
-;; powerline
-(require 'powerline)
-(powerline-default-theme)
+;; Builtin packages
+(use-package shell
+    :bind
+    ("<f12>" . 'shell)
+    :hook
+    (shell-mode . compilation-shell-minor-mode))
 
-;; flx-ido
-(require 'flx-ido)
-(flx-ido-mode 1)
-(setq ido-enable-flex-matching t
-      ido-use-faces nil
-      ido-ignore-extensions t)
-(push ".exe" completion-ignored-extensions)
+;; Packages
+(use-package magit
+    :bind
+    ("C-x C-z" . 'magit-status))
 
-;; company
-(require 'company-quickhelp)
-(setq company-quickhelp-delay 0.2
-      company-dabbrev-downcase nil
-      company-show-numbers t
-      company-tooltip-idle-delay 0
-      company-idle-delay 0.1
-      company-lsp-async t)
+(use-package expand-region
+    :bind
+    ("C-q" . 'er/expand-region))
 
-;; exec-path-from-shell
-(require 'exec-path-from-shell)
-(when (memq window-system '(mac ns x))
+(use-package flx-ido
+    :config
+    (flx-ido-mode)
+    (push ".exe" completion-ignored-extensions)
+    :custom
+    (ido-enable-flex-matching t)
+    (ido-ignore-extensions t))
+
+(use-package imenu-anywhere
+    :bind
+    ("C-." . #'ido-imenu-anywhere))
+
+(use-package exec-path-from-shell
+    :if
+    (memq window-system '(mac ns x))
+    :config
     (exec-path-from-shell-initialize))
 
-;; dimmer
-(dimmer-mode)
-(with-eval-after-load 'dimmer
-    (setq dimmer-fraction 0.4))
+(use-package company
+    :diminish company-mode
+    :custom
+    (company-dabbrev-downcase nil)
+    (company-show-numbers t)
+    (company-tooltip-idle-delay 0)
+    (company-idle-delay 0.1))
+(use-package company-quickhelp
+    :custom
+    (company-quickhelp-delay 0.2)
+    :hook
+    (company-mode . company-quickhelp-local-mode))
 
-;; lsp
-(require 'lsp-ui)
-(setq lsp-ui-sideline-enable nil
-      lsp-ui-peek-enable nil
-      lsp-ui-doc-enable nil
-      lsp-enable-on-type-formatting nil
-      lsp-clients-go-gocode-completion-enabled nil)
-(setq lsp-clients-go-server-args
-      '(
-        "-enhance-signature-help"
-        "-format-style=goimports"
-))
+(use-package lsp-mode
+    :custom
+    (lsp-enable-on-type-formatting nil)
+    (lsp-clients-go-gocode-completion-enabled nil)
+    (lsp-clients-go-server-args '(
+                                  "-enhance-signature-help"
+                                  "-format-style=goimports"))
+    :config
+    (use-package lsp-ui
+        :custom
+        (lsp-ui-sideline-enable nil)
+        (lsp-ui-doc-enable nil)
+        (lsp-ui-peek-enable nil))
+    (use-package company-lsp
+        :custom
+        (company-lsp-async t)))
 
-;; dockerfile-mode
-(add-to-list 'auto-mode-alist '("Dockerfile.*\\'" . dockerfile-mode))
+(use-package ag
+    :custom
+    (ag-highlight-search t))
 
-;; groovy mode
-(add-to-list 'auto-mode-alist '("Jenkinsfile.*\\'" . groovy-mode))
+(use-package dtrt-indent)
+(use-package clang-format)
 
-;; YAML mode
-(add-to-list 'auto-mode-alist '(".*\.yml\\'" . yaml-mode))
+;; Modes
+(use-package dockerfile-mode
+    :mode "Dockerfile.*\\'")
 
-;; ag
-(require 'ag)
-(setq ag-highlight-search t)
+(use-package groovy-mode
+    :mode "Jenkinsfile.*\\'")
 
-;; Web dev
-(add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.js[x]\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
+(use-package yaml-mode
+    :mode ".*\.yml\\'")
 
+(use-package web-mode
+    :mode
+    (("\\.tsx\\'" . web-mode)
+     ("\\.js[x]\\'" . web-mode)))
+
+(use-package typescript-mode
+    :mode "\\.ts\\'")
+
+(use-package go-mode)
+(use-package cmake-mode)
+(use-package protobuf-mode)
+
+;; UI enchancements
+(use-package powerline
+    :init
+    (powerline-default-theme))
+
+(use-package dimmer
+    :config
+    (dimmer-mode)
+    :custom
+    (dimmer-fraction 0.4))
 
 (provide 'package_my)
-;;; package_my.el ends here

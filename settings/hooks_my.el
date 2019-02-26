@@ -24,13 +24,6 @@
          (desktop-remove)
          (setq desktop-dirname desktop-dirname-tmp)))
 
-;; winnow
-(add-hook 'ag-mode-hook 'winnow-mode)
-(add-hook 'compilation-mode-hook 'winnow-mode)
-
-;; Shell mode
-(add-hook 'shell-mode-hook 'compilation-shell-minor-mode)
-
 ;; Default hook for dev files
 (defun my-dev-hook ()
     "Hook for all development files."
@@ -40,9 +33,6 @@
     (dtrt-indent-mode)
     (flymake-mode)
     )
-
-;; Company mode
-(add-hook 'company-mode-hook 'company-quickhelp-local-mode)
 
 ;; LSP mode
 ;; Activate hooks for supported languages
