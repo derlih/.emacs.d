@@ -16,34 +16,34 @@
 (package-initialize)
 (package-refresh-contents)
 
-(setq my_packages
-      '(
-        company
-        company-quickhelp
-        magit
-        lsp-mode
-        lsp-ui
-        company-lsp
-        go-mode
-        flx-ido
-        imenu-anywhere
-        dockerfile-mode
-        exec-path-from-shell
-        dtrt-indent
-        groovy-mode
-        yaml-mode
-        ag
-        winnow
-        dimmer
-        powerline
-        web-mode
-        cmake-mode
-        typescript-mode
-        clang-format
-        protobuf-mode
-        ))
+(defvar package_my-packages
+    '(
+      company
+      company-quickhelp
+      magit
+      lsp-mode
+      lsp-ui
+      company-lsp
+      go-mode
+      flx-ido
+      imenu-anywhere
+      dockerfile-mode
+      exec-path-from-shell
+      dtrt-indent
+      groovy-mode
+      yaml-mode
+      ag
+      winnow
+      dimmer
+      powerline
+      web-mode
+      cmake-mode
+      typescript-mode
+      clang-format
+      protobuf-mode
+      ))
 
-(cl-loop for pkg in my_packages do
+(cl-loop for pkg in package_my-packages do
          (message "Ensure %s installed" pkg)
          (unless (package-installed-p pkg)
              (package-install pkg)))
