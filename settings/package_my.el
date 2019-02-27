@@ -49,7 +49,8 @@
     (push ".exe" completion-ignored-extensions)
     :custom
     (ido-enable-flex-matching t)
-    (ido-ignore-extensions t))
+    (ido-ignore-extensions t)
+    (ido-auto-merge-work-directories-length -1))
 
 (use-package imenu-anywhere
     :bind
