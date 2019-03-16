@@ -127,7 +127,13 @@
 (use-package web-mode
     :mode
     (("\\.tsx\\'" . web-mode)
-     ("\\.js[x]\\'" . web-mode)))
+     ("\\.js\\'" . web-mode)
+     ("\\.jsx\\'" . web-mode))
+    :config
+    (add-hook 'web-mode-hook
+              (lambda ()
+                  (if (equal web-mode-content-type "javascript")
+                          (web-mode-set-content-type "jsx")))))
 
 (use-package typescript-mode
     :mode "\\.ts\\'")
