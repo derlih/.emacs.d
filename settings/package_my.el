@@ -141,6 +141,7 @@
 (use-package go-mode)
 (use-package cmake-mode)
 (use-package protobuf-mode)
+(use-package rust-mode)
 
 ;; UI enchancements
 (use-package powerline
