@@ -122,7 +122,9 @@
     :mode "Jenkinsfile.*\\'")
 
 (use-package yaml-mode
-    :mode ".*\.yml\\'")
+    :mode
+    ((".*\.yml\\'" . yaml-mode)
+     (".*\.sls\\'" . yaml-mode)))
 
 (use-package web-mode
     :mode
