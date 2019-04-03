@@ -29,9 +29,9 @@
     "Hook for all development files."
     (linum-mode)
     (turn-on-eldoc-mode)
-    (imenu-add-menubar-index)
     (dtrt-indent-mode)
     (flycheck-mode)
+    (condition-case nil (imenu-create-index-function) (error nil))
     )
 
 ;; LSP mode
