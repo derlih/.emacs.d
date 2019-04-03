@@ -140,8 +140,10 @@
 (use-package typescript-mode
     :mode "\\.ts\\'")
 
+(use-package cmake-mode
+    :mode "CMakeLists.txt")
+
 (use-package go-mode)
-(use-package cmake-mode)
 (use-package protobuf-mode)
 (use-package rust-mode)
 
