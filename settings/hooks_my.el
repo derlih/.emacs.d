@@ -75,4 +75,7 @@
 ;; CMake
 (add-hook 'cmake-mode-hook 'my-dev-hook)
 
+;; SQL
+(add-hook 'sql-mode-hook 'my-dev-hook)
+
 (provide 'hooks_my)
