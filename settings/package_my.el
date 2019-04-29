@@ -140,7 +140,9 @@
     :mode "\\.ts\\'")
 
 (use-package cmake-mode
-    :mode "CMakeLists.txt")
+    :mode "CMakeLists.txt"
+    :custom
+    (cmake-tab-width 4))
 
 (use-package go-mode)
 (use-package protobuf-mode)
