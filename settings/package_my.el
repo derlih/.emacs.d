@@ -1,12 +1,11 @@
 (require 'package)
 
 ;; package repos
-(customize-set-variable 'package-archives
-                        '(
-                          ("marmalade" . "https://marmalade-repo.org/packages/")
-                          ("Org-mode"  . "https://orgmode.org/elpa/")
-                          ("melpa"     . "https://melpa.org/packages/")
-                          ))
+(add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
 
 ;; package initialization
 (package-initialize)
