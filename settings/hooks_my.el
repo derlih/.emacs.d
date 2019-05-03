@@ -32,6 +32,7 @@
     (dtrt-indent-mode)
     (flycheck-mode)
     (condition-case nil (imenu-create-index-function) (error nil))
+    (local-set-key (kbd "C-c C-c") 'comment-or-uncomment-region)
     )
 (add-hook 'prog-mode-hook 'my-prog-mode-hook)
 
