@@ -25,14 +25,15 @@
          (setq desktop-dirname desktop-dirname-tmp)))
 
 ;; Default hook for dev files
-(defun my-dev-hook ()
-    "Hook for all development files."
+(defun my-prog-mode-hook ()
+    "Hook all modes based on 'prog-mode'."
     (linum-mode)
     (turn-on-eldoc-mode)
     (dtrt-indent-mode)
     (flycheck-mode)
     (condition-case nil (imenu-create-index-function) (error nil))
     )
+(add-hook 'prog-mode-hook 'my-prog-mode-hook)
 
 ;; LSP mode
 ;; Activate hooks for supported languages
@@ -43,28 +44,14 @@
 
 ;; Lisp
 (add-hook 'emacs-lisp-mode-hook 'company-mode)
-(add-hook 'emacs-lisp-mode-hook 'my-dev-hook)
 
 ;; Python
-(add-hook 'python-mode-hook 'my-dev-hook)
 (add-hook 'python-mode-hook #'lsp)
 
 ;; Go
-(add-hook 'go-mode-hook 'my-dev-hook)
 (add-hook 'go-mode-hook #'lsp)
 
-;; Groovy
-(add-hook 'groovy-mode-hook 'my-dev-hook)
-
-;; YAML
-(add-hook 'yaml-mode-hook 'my-dev-hook)
-
-;; Web
-(add-hook 'web-mode-hook 'my-dev-hook)
-(add-hook 'typescript-mode-hook 'my-dev-hook)
-
 ;; C mode
-(add-hook 'c-mode-common-hook 'my-dev-hook)
 (defun my-clang-format ()
     (add-hook 'before-save-hook 'clang-format-buffer nil 'local))
 (add-hook 'c++-mode-hook
@@ -72,10 +59,5 @@
 (add-hook 'c-mode-hook
           'my-clang-format)
 
-;; CMake
-(add-hook 'cmake-mode-hook 'my-dev-hook)
-
-;; SQL
-(add-hook 'sql-mode-hook 'my-dev-hook)
 
 (provide 'hooks_my)
