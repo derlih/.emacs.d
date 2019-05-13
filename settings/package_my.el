@@ -147,6 +147,7 @@
 (use-package go-mode)
 (use-package protobuf-mode)
 (use-package rust-mode)
+(use-package powershell)
 
 ;; UI enchancements
 (use-package powerline
