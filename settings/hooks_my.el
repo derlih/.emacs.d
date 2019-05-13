@@ -59,6 +59,8 @@
           'my-clang-format)
 (add-hook 'c-mode-hook
           'my-clang-format)
+;; Groovy
+(add-hook 'groovy-mode-hook 'my-prog-mode-hook)
 
 
 (provide 'hooks_my)
