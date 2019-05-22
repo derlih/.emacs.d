@@ -52,15 +52,17 @@
 ;; Go
 (add-hook 'go-mode-hook #'lsp)
 
-;; C mode
+;; Groovy
+(add-hook 'groovy-mode-hook 'my-prog-mode-hook)
+
+;; C/C++ mode
 (defun my-clang-format ()
-    (add-hook 'before-save-hook 'clang-format-buffer nil 'local))
+    (local-set-key (kbd "C-c d") 'clang-format-buffer)
+    (local-set-key (kbd "C-c f") 'clang-format-region)
+    )
 (add-hook 'c++-mode-hook
           'my-clang-format)
 (add-hook 'c-mode-hook
           'my-clang-format)
-;; Groovy
-(add-hook 'groovy-mode-hook 'my-prog-mode-hook)
-
 
 (provide 'hooks_my)
