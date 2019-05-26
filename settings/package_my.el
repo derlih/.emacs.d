@@ -123,7 +123,9 @@
 (use-package yaml-mode
     :mode
     ((".*\.yml\\'" . yaml-mode)
-     (".*\.sls\\'" . yaml-mode)))
+     (".*\.sls\\'" . yaml-mode))
+    :bind
+    ("C-c C-c" . 'comment-or-uncomment-region))
 
 (use-package web-mode
     :mode
