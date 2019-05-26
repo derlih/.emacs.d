@@ -150,6 +150,7 @@
 (use-package protobuf-mode)
 (use-package rust-mode)
 (use-package powershell)
+(use-package restclient)
 
 ;; UI enchancements
 (use-package powerline
