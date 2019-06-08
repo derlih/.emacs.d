@@ -67,38 +67,51 @@
     (company-dabbrev-downcase nil)
     (company-show-numbers t)
     (company-tooltip-idle-delay 0)
-    (company-idle-delay 0.1)
-    :config
-    (use-package company-quickhelp
-        :custom
-        (company-quickhelp-delay 0.2)
-        :hook
-        (company-mode . company-quickhelp-local-mode)))
+    (company-idle-delay 0.1))
+(use-package company-quickhelp
+    :after company
+    :custom
+    (company-quickhelp-delay 0.2)
+    :hook
+    (company-mode . company-quickhelp-local-mode))
 
-(use-package flycheck
+(use-package flycheck)
+(use-package flycheck-pos-tip
+    :after company
     :config
-    (use-package flycheck-pos-tip
-        :config
-        (flycheck-pos-tip-mode)))
+    (flycheck-pos-tip-mode))
+(use-package flycheck-pycheckers
+    :after flycheck
+    :config
+    (add-hook 'flycheck-mode-hook #'flycheck-pycheckers-setup))
 
 (use-package lsp-mode
     :custom
-    (lsp-prefer-flymake :none)
+    ;; (lsp-print-io t)
+    ;; (lsp-trace t)
+    (lsp-prefer-flymake nil)
     (lsp-enable-on-type-formatting nil)
     (lsp-clients-go-gocode-completion-enabled nil)
     (lsp-clients-go-server-args '(
                                   "-enhance-signature-help"
                                   "-format-style=goimports"))
-    :config
-    (use-package lsp-ui
-        :custom
-        (lsp-ui-sideline-enable nil)
-        (lsp-ui-doc-enable nil)
-        (lsp-ui-peek-enable nil)
-        (lsp-ui-flycheck-enable t))
-    (use-package company-lsp
-        :custom
-        (company-lsp-async t)))
+
+    (lsp-pyls-plugins-pyflakes-enabled nil)
+    (lsp-pyls-plugins-pydocstyle-enabled nil)
+    (lsp-pyls-plugins-pycodestyle-enabled nil)
+    (lsp-pyls-plugins-pylint-enabled nil)
+    (lsp-pyls-plugins-yapf-enabled nil))
+;; (use-package lsp-ui
+;;     :after lsp-mode
+;;     :custom
+;;     (lsp-ui-sideline-enable nil)
+;;     (lsp-ui-doc-enable nil)
+;;     (lsp-ui-peek-enable nil)
+;;     (lsp-ui-flycheck-enable nil))
+(use-package company-lsp
+    :after lsp-mode
+    :custom
+    (company-lsp-async t))
 
 (use-package ag
     :custom
