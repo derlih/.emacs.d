@@ -107,7 +107,8 @@
     (lsp-pyls-plugins-pydocstyle-enabled nil)
     (lsp-pyls-plugins-pycodestyle-enabled nil)
     (lsp-pyls-plugins-pylint-enabled nil)
-    (lsp-pyls-plugins-yapf-enabled nil))
+    (lsp-pyls-plugins-yapf-enabled nil)
+    (lsp-enable-snippet nil))
 ;; (use-package lsp-ui
 ;;     :after lsp-mode
 ;;     :custom
@@ -156,11 +157,15 @@
     (web-mode-markup-indent-offset 2)
     (web-mode-css-indent-offset 2)
     (web-mode-code-indent-offset 2)
+    (web-mode-enable-auto-pairing nil)
     :config
     (add-hook 'web-mode-hook
               (lambda ()
                   (if (equal web-mode-content-type "javascript")
-                          (web-mode-set-content-type "jsx")))))
+                          (web-mode-set-content-type "jsx"))))
+    (setq-default web-mode-comment-formats
+                  '(("javascript" . "//")
+                    ("jsx" . "//"))))
 
 (use-package prettier-js)
 
