@@ -75,15 +75,22 @@
     :hook
     (company-mode . company-quickhelp-local-mode))
 
-(use-package flycheck)
+(use-package flycheck
+    :config
+    (flycheck-add-mode 'javascript-eslint 'web-mode))
+
 (use-package flycheck-pos-tip
-    :after company
+    :after (company flycheck)
     :config
     (flycheck-pos-tip-mode))
+
 (use-package flycheck-pycheckers
     :after flycheck
     :config
-    (add-hook 'flycheck-mode-hook #'flycheck-pycheckers-setup))
+    (add-hook 'flycheck-mode-hook #'flycheck-pycheckers-setup)
+    (setq-default flycheck-disabled-checkers
+                  (append flycheck-disabled-checkers
+                          '(javascript-jshint json-jsonlist))))
 
 (use-package lsp-mode
     :custom
@@ -154,6 +161,15 @@
               (lambda ()
                   (if (equal web-mode-content-type "javascript")
                           (web-mode-set-content-type "jsx")))))
+
+(use-package prettier-js)
+
+(use-package add-node-modules-path
+    :config
+    (add-hook 'flycheck-mode-hook 'add-node-modules-path)
+    (add-hook 'web-mode-hook  (lambda()
+                                  (add-node-modules-path)
+                                  (prettier-js-mode))))
 
 (use-package typescript-mode
     :mode "\\.ts\\'")
