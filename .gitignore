@@ -1,6 +1,7 @@
 /elpa
-/.emacs.desktop.lock
-/emacs-desktop
+.emacs.desktop.lock
+emacs-desktop
+network-security.data
 /server
 /auto-save-list
 /.lsp-session-*
