@@ -187,6 +187,7 @@
 (use-package go-mode)
 (use-package protobuf-mode)
 (use-package rust-mode)
+(use-package lua-mode)
 (use-package powershell)
 (use-package restclient)
 

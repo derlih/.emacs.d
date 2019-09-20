@@ -65,4 +65,7 @@
 (add-hook 'c-mode-hook
           'my-clang-format)
 
+;; Lua
+(add-hook 'lua-mode-hook 'my-prog-mode-hook)
+
 (provide 'hooks_my)
