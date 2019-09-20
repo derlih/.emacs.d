@@ -131,7 +131,13 @@
     :bind-keymap
     ("C-c p" . projectile-command-map))
 
-(use-package dtrt-indent)
+(use-package dtrt-indent
+    :after web-mode
+    :config
+    (add-to-list 'dtrt-indent-hook-mapping-list '(web-mode-prog-mode javascript web-mode-code-indent-offset) t)
+    (add-to-list 'dtrt-indent-hook-mapping-list '(web-mode-prog-mode css web-mode-css-indent-offset) t)
+    (add-to-list 'dtrt-indent-hook-mapping-list '(web-mode-prog-mode sgml web-mode-markup-indent-offset) t))
+
 (use-package clang-format)
 
 ;; Modes
@@ -154,9 +160,6 @@
      ("\\.js\\'" . web-mode)
      ("\\.jsx\\'" . web-mode))
     :custom
-    (web-mode-markup-indent-offset 2)
-    (web-mode-css-indent-offset 2)
-    (web-mode-code-indent-offset 2)
     (web-mode-enable-auto-pairing nil)
     :config
     (add-hook 'web-mode-hook
