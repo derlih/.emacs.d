@@ -71,4 +71,7 @@
 ;; Lua
 (add-hook 'lua-mode-hook 'my-prog-mode-hook)
 
+;; Yaml
+(add-hook 'yaml-mode-hook 'my-prog-mode-hook)
+
 (provide 'hooks_my)
