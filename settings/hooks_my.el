@@ -65,6 +65,9 @@
 (add-hook 'c-mode-hook
           'my-clang-format)
 
+;; CSS
+(add-hook 'css-mode-hook #'lsp)
+
 ;; Lua
 (add-hook 'lua-mode-hook 'my-prog-mode-hook)
 
