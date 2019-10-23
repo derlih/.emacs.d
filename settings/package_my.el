@@ -193,6 +193,7 @@
 (use-package lua-mode)
 (use-package powershell)
 (use-package restclient)
+(use-package nginx-mode)
 
 ;; UI enchancements
 (use-package powerline
