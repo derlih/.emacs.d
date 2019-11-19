@@ -128,6 +128,8 @@
 (use-package projectile
     :config
     (projectile-mode +1)
+    :custom
+    (projectile-indexing-method 'alien)
     :bind-keymap
     ("C-c p" . projectile-command-map))
 
