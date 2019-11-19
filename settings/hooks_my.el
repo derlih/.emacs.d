@@ -33,7 +33,8 @@
     (flycheck-mode)
     (condition-case nil (imenu-create-index-function) (error nil))
     (local-set-key (kbd "C-c C-c") 'comment-or-uncomment-region)
-    )
+    (flyspell-prog-mode))
+
 (add-hook 'prog-mode-hook 'my-prog-mode-hook)
 
 ;; LSP mode
