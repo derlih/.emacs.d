@@ -212,6 +212,7 @@ There are two things you can do about this warning:
 (use-package powershell)
 (use-package restclient)
 (use-package nginx-mode)
+(use-package qml-mode)
 
 ;; UI enchancements
 (use-package powerline
