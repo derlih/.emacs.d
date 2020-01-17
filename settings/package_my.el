@@ -186,7 +186,9 @@ There are two things you can do about this warning:
                   '(("javascript" . "//")
                     ("jsx" . "//"))))
 
-(use-package prettier-js)
+(use-package prettier-js
+    :hook ((web-mode . prettier-js-mode)
+           (js-mode . prettier-js-mode)))
 
 (use-package add-node-modules-path
     :config
