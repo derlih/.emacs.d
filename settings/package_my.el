@@ -90,7 +90,8 @@ There are two things you can do about this warning:
 
 (use-package flycheck
     :config
-    (flycheck-add-mode 'javascript-eslint 'web-mode))
+    (flycheck-add-mode 'javascript-eslint 'web-mode)
+    (flycheck-add-mode 'javascript-eslint 'js-mode))
 
 (use-package flycheck-pos-tip
     :after (company flycheck)
