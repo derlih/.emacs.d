@@ -9,3 +9,4 @@ network-security.data
 flycheck_*
 /transient
 /projectile*
+.last-package-update-day

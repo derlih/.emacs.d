@@ -39,6 +39,11 @@ There are two things you can do about this warning:
   :defer nil
   :config (auto-compile-on-load-mode))
 
+;; Auto update
+(use-package auto-package-update
+    :config
+    (auto-package-update-maybe))
+
 ;; Builtin packages
 (use-package shell
     :bind
