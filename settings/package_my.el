@@ -39,10 +39,8 @@ There are two things you can do about this warning:
   :defer nil
   :config (auto-compile-on-load-mode))
 
-;; Auto update
-(use-package auto-package-update
-    :config
-    (auto-package-update-maybe))
+;; Optional dependencies for use-package
+(use-package delight)
 
 ;; Builtin packages
 (use-package shell
@@ -51,7 +49,20 @@ There are two things you can do about this warning:
     :hook
     (shell-mode . compilation-shell-minor-mode))
 
+(use-package autorevert
+    :delight auto-revert-mode)
+
+(use-package flyspell
+    :if (or (executable-find "aspell") (executable-find "ispell"))
+    :delight)
+
 ;; Packages
+(use-package auto-package-update
+    :custom
+    (auto-package-update-delete-old-versions t)
+    :config
+    (auto-package-update-maybe))
+
 (use-package magit
     :bind
     ("C-x C-z" . 'magit-status))
@@ -80,7 +91,7 @@ There are two things you can do about this warning:
     (exec-path-from-shell-initialize))
 
 (use-package company
-    :diminish company-mode
+    :delight
     :custom
     (company-dabbrev-downcase nil)
     (company-show-numbers t)
@@ -143,6 +154,7 @@ There are two things you can do about this warning:
     (ag-highlight-search t))
 
 (use-package projectile
+    :delight
     :config
     (projectile-mode +1)
     :custom
@@ -152,6 +164,7 @@ There are two things you can do about this warning:
 
 (use-package dtrt-indent
     :after web-mode
+    :delight
     :config
     (add-to-list 'dtrt-indent-hook-mapping-list '(web-mode-prog-mode javascript web-mode-code-indent-offset) t)
     (add-to-list 'dtrt-indent-hook-mapping-list '(web-mode-prog-mode css web-mode-css-indent-offset) t)
