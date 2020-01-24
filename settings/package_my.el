@@ -230,6 +230,13 @@ There are two things you can do about this warning:
 (use-package nginx-mode)
 (use-package qml-mode)
 
+(use-package helpful
+  :if (>= emacs-major-version 25)
+  :bind (([remap describe-function] . helpful-callable)
+         ([remap describe-variable] . helpful-variable)
+         ([remap describe-key] . helpful-key)
+         ("H-h" . helpful-at-point)))
+
 ;; UI enchancements
 (use-package doom-themes
     :custom
