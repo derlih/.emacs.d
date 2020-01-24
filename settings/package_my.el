@@ -220,6 +220,15 @@ There are two things you can do about this warning:
 (use-package qml-mode)
 
 ;; UI enchancements
+(use-package doom-themes
+    :custom
+    (doom-themes-enable-bold t)
+    (doom-themes-enable-italic t)
+    :config
+    (load-theme 'doom-challenger-deep t)
+    (doom-themes-visual-bell-config)
+    (doom-themes-org-config))
+
 (use-package powerline
     :init
     (powerline-default-theme))

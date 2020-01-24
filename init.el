@@ -1,7 +1,8 @@
 (package-initialize)
 
 (add-to-list 'load-path (expand-file-name "settings" user-emacs-directory))
-(require 'dark-mint-theme)
+;; Use doom themes for now
+;; (require 'dark-mint-theme)
 (require 'scratch_my)
 (require 'package_my)
 (require 'hooks_my)

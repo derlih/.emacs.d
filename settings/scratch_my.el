@@ -57,6 +57,9 @@
 ;; Turn on column mode
 (setq column-number-mode t)
 
+;; Reset fringle background
+(set-face-attribute 'fringe nil :background nil)
+
 ;; Set tab 4 spaces
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
