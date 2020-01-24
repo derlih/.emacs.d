@@ -10,3 +10,4 @@ flycheck_*
 /transient
 /projectile*
 .last-package-update-day
+/forge-database.sqlite

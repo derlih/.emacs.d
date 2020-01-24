@@ -67,6 +67,12 @@ There are two things you can do about this warning:
     :bind
     ("C-x C-z" . 'magit-status))
 
+(use-package forge
+    :after magit)
+
+(use-package magit-todos
+    :after magit)
+
 (use-package expand-region
     :bind
     ("C-q" . 'er/expand-region))
