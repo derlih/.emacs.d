@@ -129,4 +129,9 @@
 ;; IBuffer
 (setq ibuffer-expert t)
 
+;; Other settings
+(put 'dired-find-alternate-file 'disabled nil)
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
+
 (provide 'scratch_my)
