@@ -45,12 +45,14 @@
 ;; or Backspace
 (delete-selection-mode t)
 
-;; Disable toolbar
-(when (display-graphic-p)
-  (tool-bar-mode -1))
-
 ;; Disable menu
-(menu-bar-mode t)
+(menu-bar-mode -1)
+
+;; Disable toolbar
+(tool-bar-mode -1)
+
+;; Disable scroll bar
+(scroll-bar-mode -1)
 
 ;; Turn on column mode
 (setq column-number-mode t)
