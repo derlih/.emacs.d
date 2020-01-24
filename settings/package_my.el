@@ -99,9 +99,7 @@ There are two things you can do about this warning:
     (flycheck-add-mode 'javascript-eslint 'js-mode))
 
 (use-package flycheck-pos-tip
-    :after (company flycheck)
-    :config
-    (flycheck-pos-tip-mode))
+    :after (company flycheck))
 
 (use-package flycheck-pycheckers
     :after flycheck
