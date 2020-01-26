@@ -76,4 +76,10 @@
 ;; Yaml
 (add-hook 'yaml-mode-hook 'my-prog-mode-hook)
 
+;; web
+(add-hook 'web-mode-hook #'lsp)
+
+;; typescript
+(add-hook 'typescript-mode-hook #'lsp)
+
 (provide 'hooks_my)
