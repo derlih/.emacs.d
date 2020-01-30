@@ -58,6 +58,11 @@ There are two things you can do about this warning:
     :if (or (executable-find "aspell") (executable-find "ispell"))
     :delight)
 
+(use-package prog-mode
+    :ensure nil
+    :custom
+    (prettify-symbols-unprettify-at-point 'right-edge))
+
 ;; Packages
 (use-package auto-package-update
     :custom

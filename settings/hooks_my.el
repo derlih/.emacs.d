@@ -34,7 +34,13 @@
     (flycheck-pos-tip-mode)
     (condition-case nil (imenu-create-index-function) (error nil))
     (local-set-key (kbd "C-c C-c") 'comment-or-uncomment-region)
-    (flyspell-prog-mode))
+    (flyspell-prog-mode)
+
+    (setq prettify-symbols-alist '(
+                              ("<=" . ?≤)
+                              (">=" . ?≥)
+                              ("->" . ?→)))
+    (prettify-symbols-mode 1))
 
 (add-hook 'prog-mode-hook 'my-prog-mode-hook)
 
