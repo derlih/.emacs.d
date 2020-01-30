@@ -44,12 +44,14 @@ There are two things you can do about this warning:
 
 ;; Builtin packages
 (use-package shell
+    :ensure nil
     :bind
     ("<f12>" . 'shell)
     :hook
     (shell-mode . compilation-shell-minor-mode))
 
 (use-package autorevert
+    :ensure nil
     :delight auto-revert-mode)
 
 (use-package flyspell
