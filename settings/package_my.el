@@ -136,7 +136,6 @@ There are two things you can do about this warning:
 (use-package lsp-mode
     :custom
     ;; (lsp-print-io t)
-    ;; (lsp-trace t)
     (lsp-prefer-flymake nil)
     (lsp-enable-on-type-formatting nil)
     (lsp-clients-go-gocode-completion-enabled nil)
@@ -144,11 +143,12 @@ There are two things you can do about this warning:
                                   "-enhance-signature-help"
                                   "-format-style=goimports"))
 
-    (lsp-pyls-plugins-pyflakes-enabled nil)
-    (lsp-pyls-plugins-pydocstyle-enabled nil)
-    (lsp-pyls-plugins-pycodestyle-enabled nil)
-    (lsp-pyls-plugins-pylint-enabled nil)
+    (lsp-pyls-plugins-pyflakes-enabled t)
+    (lsp-pyls-plugins-pydocstyle-enabled t)
+    (lsp-pyls-plugins-pycodestyle-enabled t)
+    (lsp-pyls-plugins-pylint-enabled t)
     (lsp-pyls-plugins-yapf-enabled nil)
+    (lsp-pyls-plugins-autopep8-enabled nil)
     (lsp-enable-snippet nil))
 ;; (use-package lsp-ui
 ;;     :after lsp-mode
