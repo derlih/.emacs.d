@@ -187,7 +187,16 @@ There are two things you can do about this warning:
     (company-lsp-async t))
 
 (use-package lsp-java
-    :after lsp)
+    :after lsp
+    :custom
+    (lsp-java-format-settings-url "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml")
+    (lsp-inhibit-message t)
+    (lsp-java-format-on-type-enabled nil)
+    (lsp-java-format-enabled t)
+    (lsp-java-autobuild-enabled nil)
+    (lsp-java-save-action-organize-imports t)
+    (lsp-java-signature-help-enabled t)
+    (lsp-java-completion-enabled t))
 
 (use-package ag
     :custom
