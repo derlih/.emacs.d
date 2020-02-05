@@ -11,3 +11,5 @@ flycheck_*
 /projectile*
 .last-package-update-day
 /forge-database.sqlite
+/session*
+/tramp*
