@@ -63,6 +63,28 @@ There are two things you can do about this warning:
     :custom
     (prettify-symbols-unprettify-at-point 'right-edge))
 
+
+;; UI enchancements
+(use-package doom-themes
+    :custom
+    (doom-themes-enable-bold t)
+    (doom-themes-enable-italic t)
+    :config
+    (doom-themes-visual-bell-config)
+    (doom-themes-org-config)
+    :init
+    (load-theme 'doom-challenger-deep t))
+
+(use-package powerline
+    :init
+    (powerline-default-theme))
+
+(use-package dimmer
+    :config
+    (dimmer-mode)
+    :custom
+    (dimmer-fraction 0.4))
+
 ;; Packages
 (use-package auto-package-update
     :custom
@@ -249,25 +271,5 @@ There are two things you can do about this warning:
          ([remap describe-variable] . helpful-variable)
          ([remap describe-key] . helpful-key)
          ("H-h" . helpful-at-point)))
-
-;; UI enchancements
-(use-package doom-themes
-    :custom
-    (doom-themes-enable-bold t)
-    (doom-themes-enable-italic t)
-    :config
-    (load-theme 'doom-challenger-deep t)
-    (doom-themes-visual-bell-config)
-    (doom-themes-org-config))
-
-(use-package powerline
-    :init
-    (powerline-default-theme))
-
-(use-package dimmer
-    :config
-    (dimmer-mode)
-    :custom
-    (dimmer-fraction 0.4))
 
 (provide 'package_my)
