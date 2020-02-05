@@ -172,6 +172,7 @@ There are two things you can do about this warning:
     (lsp-pyls-plugins-yapf-enabled nil)
     (lsp-pyls-plugins-autopep8-enabled nil)
     (lsp-enable-snippet nil))
+
 ;; (use-package lsp-ui
 ;;     :after lsp-mode
 ;;     :custom
@@ -179,6 +180,7 @@ There are two things you can do about this warning:
 ;;     (lsp-ui-doc-enable nil)
 ;;     (lsp-ui-peek-enable nil)
 ;;     (lsp-ui-flycheck-enable nil))
+
 (use-package company-lsp
     :after lsp-mode
     :custom
