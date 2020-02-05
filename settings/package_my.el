@@ -184,6 +184,9 @@ There are two things you can do about this warning:
     :custom
     (company-lsp-async t))
 
+(use-package lsp-java
+    :after lsp)
+
 (use-package ag
     :custom
     (ag-highlight-search t))

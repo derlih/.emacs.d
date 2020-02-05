@@ -88,4 +88,6 @@
 ;; typescript
 (add-hook 'typescript-mode-hook #'lsp)
 
+(add-hook 'java-mode-hook #'lsp)
+
 (provide 'hooks_my)
