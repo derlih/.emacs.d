@@ -289,9 +289,17 @@ There are two things you can do about this warning:
 (use-package restclient)
 (use-package nginx-mode)
 (use-package qml-mode)
-(use-package javadoc-lookup
-    :config
-    (javadoc-add-roots "/usr/share/doc/openjdk-8-doc/api"))
+
+(use-package javadoc-lookup)
+(use-package gradle-mode
+    :mode ("\\.gradle\\'" . gradle-mode))
+(use-package groovy-mode
+    :mode ("\\.gradle\\'" . groovy-mode))
+(use-package kotlin-mode
+    :init
+    (defun my-java-hook ()
+        (local-set-key (kbd "C-h j") 'javadoc-lookup))
+    (add-hook 'kotlin-mode-hook 'my-java-hook))
 
 (use-package helpful
   :if (>= emacs-major-version 25)
