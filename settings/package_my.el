@@ -91,6 +91,11 @@ There are two things you can do about this warning:
     (powerline-default-theme))
 
 ;; Packages
+(use-package exec-path-from-shell
+    :if (memq window-system '(mac ns x))
+    :init
+    (exec-path-from-shell-initialize))
+
 (use-package auto-package-update
     :custom
     (auto-package-update-delete-old-versions t)
