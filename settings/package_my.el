@@ -90,12 +90,6 @@ There are two things you can do about this warning:
     :init
     (powerline-default-theme))
 
-(use-package dimmer
-    :config
-    (dimmer-mode)
-    :custom
-    (dimmer-fraction 0.4))
-
 ;; Packages
 (use-package auto-package-update
     :custom
