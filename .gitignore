@@ -16,3 +16,4 @@ flycheck_*
 /.cache
 /workspace
 /javadoc-cache
+/url
