@@ -79,6 +79,12 @@ There are two things you can do about this warning:
     :custom
     (show-paren-delay 0))
 
+(use-package ido-mode
+    :ensure nil
+    :custom
+    (ido-enable-flex-matching t)
+    (ido-everywhere t))
+
 (use-package prog-mode
     :ensure nil
     :custom

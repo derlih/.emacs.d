@@ -100,9 +100,7 @@
   (cl-letf (((symbol-function #'process-list) (lambda ())))
     ad-do-it))
 
-;; IDO
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
+;; IDO autocompletion for find-file and other stuff
 (ido-mode 1)
 
 ;; imenu
