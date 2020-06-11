@@ -28,7 +28,7 @@
 (defun my-prog-mode-hook ()
     "Hook all modes based on 'prog-mode'."
     (linum-mode)
-    (turn-on-eldoc-mode)
+    (eldoc-mode)
     (dtrt-indent-mode)
     (flycheck-mode)
     (flycheck-pos-tip-mode)
