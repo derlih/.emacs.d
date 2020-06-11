@@ -77,12 +77,6 @@
 
 
 ;; Session support
-(setq
-      desktop-files-not-to-save "^$"
-      desktop-dirname           "~/.emacs.d/"
-      desktop-path              (list desktop-dirname)
-      desktop-base-file-name    "emacs-desktop"
-      desktop-save              t)
 (desktop-save-mode 1)
 
 ;; Disable *scratch* buffer

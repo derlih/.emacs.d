@@ -65,6 +65,15 @@ There are two things you can do about this warning:
     :if (or (executable-find "aspell") (executable-find "ispell"))
     :delight)
 
+(use-package desktop-save-mode
+    :ensure nil
+    :custom
+    (desktop-files-not-to-save "^$")
+    (desktop-dirname           "~/.emacs.d/")
+    (desktop-path              (list desktop-dirname))
+    (desktop-base-file-name    "emacs-desktop")
+    (desktop-save              t))
+
 (use-package prog-mode
     :ensure nil
     :custom
