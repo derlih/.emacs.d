@@ -22,6 +22,10 @@ There are two things you can do about this warning:
 
 ;; package initialization
 (package-initialize)
+
+(when (not (package-installed-p 'gnu-elpa-keyring-update))
+    (setq package-check-signature nil))
+
 (when (not package-archive-contents)
     (package-refresh-contents))
 
@@ -32,6 +36,9 @@ There are two things you can do about this warning:
 (customize-set-variable 'use-package-always-ensure t)
 (customize-set-variable 'use-package-always-defer t)
 (customize-set-variable 'use-package-verbose nil) ;; useful for debug
+
+;; Package signature key
+(use-package gnu-elpa-keyring-update)
 
 ;; Recompile the package if .el is newer then .elc
 (customize-set-variable 'load-prefer-newer t)
