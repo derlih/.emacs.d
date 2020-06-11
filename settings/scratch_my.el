@@ -35,7 +35,6 @@
 (setq inhibit-startup-message t)
 
 ;; Show the time on the status bar.
-(setq display-time-24hr-format t)
 (display-time)
 
 ;; Make all "yes or no" prompts show "y or n" instead

@@ -85,6 +85,11 @@ There are two things you can do about this warning:
     (ido-enable-flex-matching t)
     (ido-everywhere t))
 
+(use-package display-time
+    :ensure nil
+    :custom
+    (display-time-24hr-format t))
+
 (use-package prog-mode
     :ensure nil
     :custom
