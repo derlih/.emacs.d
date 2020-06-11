@@ -74,6 +74,11 @@ There are two things you can do about this warning:
     (desktop-base-file-name    "emacs-desktop")
     (desktop-save              t))
 
+(use-package show-paren-mode
+    :ensure nil
+    :custom
+    (show-paren-delay 0))
+
 (use-package prog-mode
     :ensure nil
     :custom

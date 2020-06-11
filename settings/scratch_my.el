@@ -84,7 +84,6 @@
 
 ;; See matching pairs of parentheses
 (show-paren-mode 1)
-(setq show-paren-delay 0)
 
 ;; Automatically raises emacs frame when focused
 (auto-raise-mode)
