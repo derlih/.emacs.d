@@ -63,11 +63,11 @@
 ;; Set tab 4 spaces
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
+(setq indent-line-function 'insert-tab)
+
 (setq-default standart-indent 4)
 (setq-default c-basic-offset 4)
-(setq-default lisp-body-indent 4)
 (setq c-default-style "linux")
-(setq indent-line-function 'insert-tab)
 
 ;; Setup emacs backup directory
 (setq backup-directory-alist

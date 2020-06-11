@@ -82,6 +82,11 @@ There are two things you can do about this warning:
         (local-set-key (kbd "C-h j") 'javadoc-lookup))
     (add-hook 'java-mode-hook 'my-java-hook))
 
+(use-package lisp-mode
+    :ensure nil
+    :init
+    (setq lisp-body-indent 4))
+
 ;; UI enchancements
 (use-package doom-themes
     :custom
