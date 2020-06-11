@@ -96,15 +96,20 @@ There are two things you can do about this warning:
     (imenu-auto-rescan t)
     (imenu-use-popup-menu nil))
 
+(use-package browse-url
+    :ensure nil
+    :custom
+    (browse-url-browser-function 'eww-browse-url))
+
 (use-package prog-mode
     :ensure nil
     :custom
     (prettify-symbols-unprettify-at-point 'right-edge))
 
-(use-package browse-url
+(use-package lisp-mode
     :ensure nil
-    :custom
-    (browse-url-browser-function 'eww-browse-url))
+    :init
+    (setq lisp-body-indent 4))
 
 (use-package java-mode
     :ensure nil
@@ -112,11 +117,6 @@ There are two things you can do about this warning:
     (defun my-java-hook ()
         (local-set-key (kbd "C-h j") 'javadoc-lookup))
     (add-hook 'java-mode-hook 'my-java-hook))
-
-(use-package lisp-mode
-    :ensure nil
-    :init
-    (setq lisp-body-indent 4))
 
 ;; UI enchancements
 (use-package doom-themes
