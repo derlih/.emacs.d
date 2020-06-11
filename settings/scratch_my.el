@@ -102,10 +102,6 @@
 ;; IDO autocompletion for find-file and other stuff
 (ido-mode 1)
 
-;; imenu
-(setq imenu-auto-rescan t)
-(setq imenu-use-popup-menu nil)
-
 ;; Display the name of the current buffer in the title bar
 (setq frame-title-format "GNU Emacs: %b")
 

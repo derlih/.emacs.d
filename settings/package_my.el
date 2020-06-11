@@ -90,6 +90,12 @@ There are two things you can do about this warning:
     :custom
     (display-time-24hr-format t))
 
+(use-package imenu
+    :ensure nil
+    :custom
+    (imenu-auto-rescan t)
+    (imenu-use-popup-menu nil))
+
 (use-package prog-mode
     :ensure nil
     :custom
