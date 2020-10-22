@@ -65,8 +65,7 @@
 
 ;; C/C++ mode
 (defun my-clang-format ()
-    (local-set-key (kbd "C-c d") 'clang-format-buffer)
-    (local-set-key (kbd "C-c f") 'clang-format-region))
+    (add-hook 'before-save-hook 'clang-format-buffer nil 'local))
 
 (add-hook 'c++-mode-hook
           'my-clang-format)
