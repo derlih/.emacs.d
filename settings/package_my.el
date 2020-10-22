@@ -208,6 +208,13 @@ There are two things you can do about this warning:
                   (append flycheck-disabled-checkers
                           '(javascript-jshint json-jsonlist))))
 
+(use-package helpful
+  :if (>= emacs-major-version 25)
+  :bind (([remap describe-function] . helpful-callable)
+         ([remap describe-variable] . helpful-variable)
+         ([remap describe-key] . helpful-key)
+         ("H-h" . helpful-at-point)))
+
 (use-package lsp-mode
     :custom
     ;; (lsp-print-io t)
