@@ -65,7 +65,8 @@
 
 ;; C/C++ mode
 (defun my-clang-format ()
-    (add-hook 'before-save-hook 'clang-format-buffer nil 'local))
+    (add-hook 'before-save-hook 'clang-format-buffer nil 'local)
+    (lsp))
 
 (add-hook 'c++-mode-hook
           'my-clang-format)
