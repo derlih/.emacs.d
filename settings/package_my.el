@@ -216,7 +216,10 @@ There are two things you can do about this warning:
          ("H-h" . helpful-at-point)))
 
 (use-package lsp-mode
+    :bind
+    ("M-." . lsp-find-declaration)
     :custom
+    (lsp-keymap-prefix "C-c l")
     ;; (lsp-print-io t)
     (lsp-prefer-flymake nil)
     (lsp-enable-on-type-formatting nil)
@@ -231,7 +234,8 @@ There are two things you can do about this warning:
     (lsp-pyls-plugins-pylint-enabled t)
     (lsp-pyls-plugins-yapf-enabled nil)
     (lsp-pyls-plugins-autopep8-enabled nil)
-    (lsp-enable-snippet nil))
+    (lsp-enable-snippet nil)
+    (lsp-clients-clangd-args '("-j=4" "-background-index" "-log=error")))
 
 ;; (use-package lsp-ui
 ;;     :after lsp-mode
