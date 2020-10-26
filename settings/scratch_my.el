@@ -123,4 +123,7 @@
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 
+;; Confirm kill
+(setq confirm-kill-processes nil)
+
 (provide 'scratch_my)
