@@ -135,7 +135,6 @@ There are two things you can do about this warning:
 
 ;; Packages
 (use-package exec-path-from-shell
-    :if (memq window-system '(mac ns x))
     :init
     (exec-path-from-shell-initialize))
 
