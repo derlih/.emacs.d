@@ -72,7 +72,9 @@ There are two things you can do about this warning:
     (desktop-dirname           "~/.emacs.d/")
     (desktop-path              (list desktop-dirname))
     (desktop-base-file-name    "emacs-desktop")
-    (desktop-save              t))
+    (desktop-save              t)
+    (desktop-load-locked-desktop nil)
+    (desktop-auto-save-timeout 30))
 
 (use-package show-paren-mode
     :ensure nil
