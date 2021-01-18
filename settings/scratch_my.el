@@ -28,6 +28,18 @@
   (let ((sort-fold-case t))
     (call-interactively 'sort-lines)))
 
+(defun align-to-colon (begin end)
+  "Align region to colon (:) signs."
+  (interactive "r")
+  (align-regexp begin end
+                (rx (group (zero-or-more (syntax whitespace))) ":") 1 1 ))
+
+(defun align-to-comma (begin end)
+  "Align region to comma  signs."
+  (interactive "r")
+  (align-regexp begin end
+                (rx "," (group (zero-or-more (syntax whitespace))) ) 1 1 ))
+
 ;; Move between frames
 (windmove-default-keybindings 'meta)
 
