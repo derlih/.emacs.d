@@ -135,6 +135,8 @@ There are two things you can do about this warning:
     :init
     (powerline-default-theme))
 
+(use-package windresize)
+
 ;; Packages
 (use-package exec-path-from-shell
     :init
