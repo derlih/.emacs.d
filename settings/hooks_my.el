@@ -55,7 +55,7 @@
 (add-hook 'emacs-lisp-mode-hook 'company-mode)
 
 ;; Python
-(add-hook 'python-mode-hook #'lsp)
+;; (add-hook 'python-mode-hook #'lsp)
 
 ;; Go
 (add-hook 'go-mode-hook #'lsp)
@@ -89,5 +89,6 @@
 (add-hook 'typescript-mode-hook #'lsp)
 
 (add-hook 'java-mode-hook #'lsp)
+
 
 (provide 'hooks_my)

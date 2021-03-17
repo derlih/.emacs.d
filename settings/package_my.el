@@ -231,12 +231,12 @@ There are two things you can do about this warning:
                                   "-enhance-signature-help"
                                   "-format-style=goimports"))
 
-    (lsp-pyls-plugins-pyflakes-enabled t)
-    (lsp-pyls-plugins-pydocstyle-enabled t)
-    (lsp-pyls-plugins-pycodestyle-enabled t)
-    (lsp-pyls-plugins-pylint-enabled t)
-    (lsp-pyls-plugins-yapf-enabled nil)
-    (lsp-pyls-plugins-autopep8-enabled nil)
+    ;; (lsp-pyls-plugins-pyflakes-enabled t)
+    ;; (lsp-pyls-plugins-pydocstyle-enabled t)
+    ;; (lsp-pyls-plugins-pycodestyle-enabled t)
+    ;; (lsp-pyls-plugins-pylint-enabled t)
+    ;; (lsp-pyls-plugins-yapf-enabled nil)
+    ;; (lsp-pyls-plugins-autopep8-enabled nil)
     (lsp-enable-snippet nil)
     (lsp-clients-clangd-args '("-j=4" "-background-index" "-log=error")))
 
@@ -248,22 +248,28 @@ There are two things you can do about this warning:
 ;;     (lsp-ui-peek-enable nil)
 ;;     (lsp-ui-flycheck-enable nil))
 
-(use-package company-lsp
-    :after lsp-mode
-    :custom
-    (company-lsp-async t))
+;; (use-package lsp-java
+;;     :after lsp
+;;     :custom
+;;     (lsp-java-format-settings-url "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml")
+;;     (lsp-inhibit-message t)
+;;     (lsp-java-format-on-type-enabled nil)
+;;     (lsp-java-format-enabled t)
+;;     (lsp-java-autobuild-enabled nil)
+;;     (lsp-java-save-action-organize-imports t)
+;;     (lsp-java-signature-help-enabled t)
+;;     (lsp-java-completion-enabled t))
 
-(use-package lsp-java
-    :after lsp
-    :custom
-    (lsp-java-format-settings-url "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml")
-    (lsp-inhibit-message t)
-    (lsp-java-format-on-type-enabled nil)
-    (lsp-java-format-enabled t)
-    (lsp-java-autobuild-enabled nil)
-    (lsp-java-save-action-organize-imports t)
-    (lsp-java-signature-help-enabled t)
-    (lsp-java-completion-enabled t))
+(use-package lsp-pyright
+  :after lsp-mode
+  :hook (python-mode . (lambda ()
+                           (require 'lsp-pyright)
+                           (lsp))))
+
+(use-package blacken
+    :hook (python-mode . (lambda ()
+                             (blacken-mode)))
+    )
 
 (use-package ag
     :custom
