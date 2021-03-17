@@ -261,8 +261,14 @@ There are two things you can do about this warning:
 ;;     (lsp-java-completion-enabled t))
 
 (use-package lsp-pyright
-  :after lsp-mode
-  :hook (python-mode . (lambda ()
+    :after lsp-mode
+    :custom
+    (lsp-pyright-python-executable-cmd "python3")
+    (lsp-pyright-venv-path "./venv")
+    (lsp-pyright-auto-search-paths t)
+    (lsp-pyright-typechecking-mode "strict")
+    (lsp-pyright-auto-import-completions t)
+    :hook (python-mode . (lambda ()
                            (require 'lsp-pyright)
                            (lsp))))
 
