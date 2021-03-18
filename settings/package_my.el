@@ -238,7 +238,10 @@ There are two things you can do about this warning:
     ;; (lsp-pyls-plugins-yapf-enabled nil)
     ;; (lsp-pyls-plugins-autopep8-enabled nil)
     (lsp-enable-snippet nil)
-    (lsp-clients-clangd-args '("-j=4" "-background-index" "-log=error")))
+    (lsp-clients-clangd-args '("-j=4" "-background-index" "-log=error"))
+    :config
+    (push "[/\\\\]\\venv\\" lsp-file-watch-ignored)
+    )
 
 ;; (use-package lsp-ui
 ;;     :after lsp-mode
