@@ -277,6 +277,10 @@ There are two things you can do about this warning:
                              (blacken-mode)))
     )
 
+(use-package py-isort
+    :hook (python-mode . (lambda ()
+                             (add-hook 'before-save-hook 'py-isort-before-save))))
+
 (use-package ag
     :custom
     (ag-highlight-search t))
