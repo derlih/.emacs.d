@@ -49,7 +49,7 @@
 ;; https://github.com/emacs-lsp/lsp-mode#supported-languages
 (add-hook 'lsp-mode-hook
           '(lambda ()
-             (add-hook 'before-save-hook 'lsp-format-buffer nil 'local)))
+             (add-hook 'before-save-hook 'lsp-format-buffer 99 t)))
 
 ;; Lisp
 (add-hook 'emacs-lisp-mode-hook 'company-mode)
@@ -65,7 +65,7 @@
 
 ;; C/C++ mode
 (defun my-clang-format ()
-    (add-hook 'before-save-hook 'clang-format-buffer nil 'local)
+    (add-hook 'before-save-hook 'clang-format-buffer nil t)
     (lsp))
 
 (add-hook 'c++-mode-hook
