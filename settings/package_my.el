@@ -284,6 +284,11 @@ There are two things you can do about this warning:
     :hook (python-mode . (lambda ()
                              (add-hook 'before-save-hook 'py-isort-before-save))))
 
+(use-package pyvenv
+    :ensure t
+    :config
+    (pyvenv-mode 1))
+
 (use-package ag
     :custom
     (ag-highlight-search t))
