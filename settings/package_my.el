@@ -281,6 +281,12 @@ There are two things you can do about this warning:
 
 (use-package clang-format)
 
+(use-package ansi-color
+    :hook
+    ('shell-mode-hook . 'ansi-color-for-comint-mode-on)
+    :config
+    (add-to-list 'comint-output-filter-functions 'ansi-color-process-output))
+
 (use-package saveplace
     :init
     (save-place-mode))
