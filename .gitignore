@@ -17,3 +17,6 @@ flycheck_*
 /workspace
 /javadoc-cache
 /url
+/places
+/.dap-breakpoints
+/%backup%*

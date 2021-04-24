@@ -310,6 +310,10 @@ There are two things you can do about this warning:
 
 (use-package clang-format)
 
+(use-package saveplace
+    :init
+    (save-place-mode))
+
 ;; Modes
 (use-package dockerfile-mode
     :mode "Dockerfile.*\\'")
