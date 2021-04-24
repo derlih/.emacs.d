@@ -171,7 +171,7 @@ There are two things you can do about this warning:
 
 (use-package imenu-anywhere
     :bind
-    ("C-." . #'ido-imenu-anywhere))
+    ("C-M-." . #'ido-imenu-anywhere))
 
 (use-package exec-path-from-shell
     :if
