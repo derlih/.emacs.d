@@ -139,10 +139,6 @@ There are two things you can do about this warning:
 (use-package windresize)
 
 ;; Packages
-(use-package exec-path-from-shell
-    :init
-    (exec-path-from-shell-initialize))
-
 (use-package auto-package-update
     :custom
     (auto-package-update-delete-old-versions t)
