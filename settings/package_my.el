@@ -260,6 +260,12 @@ There are two things you can do about this warning:
     :config
     (pyvenv-mode 1))
 
+(use-package python-pytest
+    :custom
+    (python-pytest-executable "python -m pytest")
+    :bind
+    ("M-p" . 'python-pytest-dispatch))
+
 (use-package ag
     :custom
     (ag-highlight-search t))
