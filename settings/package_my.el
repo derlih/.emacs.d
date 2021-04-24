@@ -142,6 +142,7 @@ There are two things you can do about this warning:
 (use-package auto-package-update
     :custom
     (auto-package-update-delete-old-versions t)
+    (auto-package-update-hide-results t)
     :config
     (auto-package-update-maybe))
 
