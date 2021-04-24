@@ -146,6 +146,8 @@ There are two things you can do about this warning:
     :config
     (auto-package-update-maybe))
 
+(use-package f)
+
 (use-package magit
     :bind
     ("C-x C-z" . 'magit-status))
