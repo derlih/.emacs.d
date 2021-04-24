@@ -24,6 +24,19 @@
          (desktop-remove)
          (setq desktop-dirname desktop-dirname-tmp)))
 
+
+(defun pyvenv-autoload ()
+    (interactive)
+
+    (require 'f)
+    "auto activate venv directory if exists"
+    (f-traverse-upwards (lambda (path)
+                            (let ((venv-path (f-expand "venv" path)))
+                                (when (f-exists? venv-path)
+                                    (pyvenv-activate venv-path))))))
+
+(add-hook 'python-mode-hook 'pyvenv-autoload)
+
 ;; Default hook for dev files
 (defun my-prog-mode-hook ()
     "Hook all modes based on 'prog-mode'."
