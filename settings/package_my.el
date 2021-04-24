@@ -13,7 +13,8 @@ There are two things you can do about this warning:
 2. Remove this warning from your init file so you won't see it again."))
 
 (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
-(add-to-list 'package-archives (cons "marmalade" (concat proto "://marmalade-repo.org/packages/")) t)
+;; marmalade SSL cert expired
+;; (add-to-list 'package-archives (cons "marmalade" (concat proto "://marmalade-repo.org/packages/")) t)
 (add-to-list 'package-archives (cons "org" (concat proto "://orgmode.org/elpa/")) t)
 
 (when (< emacs-major-version 24)
