@@ -76,6 +76,9 @@
 ;; Groovy
 (add-hook 'groovy-mode-hook 'my-prog-mode-hook)
 
+;; Rust
+(add-hook 'rust-mode-hook #'lsp)
+
 ;; C/C++ mode
 (defun my-clang-format ()
     (add-hook 'before-save-hook 'clang-format-buffer nil t)
