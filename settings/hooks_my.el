@@ -79,6 +79,9 @@
 ;; Rust
 (add-hook 'rust-mode-hook #'lsp)
 
+;; CMake
+(add-hook 'cmake-mode-hook #'lsp)
+
 ;; C/C++ mode
 (defun my-clang-format ()
     (add-hook 'before-save-hook 'clang-format-buffer nil t)
