@@ -292,7 +292,11 @@ There are two things you can do about this warning:
 (use-package ansi-color
     :hook
     ('shell-mode-hook . 'ansi-color-for-comint-mode-on)
+    (compilation-filter . my-colorize-compilation-buffer)
     :config
+    (defun my-colorize-compilation-buffer ()
+        (when (eq major-mode 'compilation-mode)
+            (ansi-color-apply-on-region compilation-filter-start (point-max))))
     (add-to-list 'comint-output-filter-functions 'ansi-color-process-output))
 
 (use-package saveplace
